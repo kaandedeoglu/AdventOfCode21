@@ -27,7 +27,9 @@ guard let url = Bundle.main.url(forResource: "Input", withExtension: "txt"),
     exit(0)
 }
 
-let numbers = inputString.components(separatedBy: "\n").compactMap(Int.init)
+let numbers = inputString
+    .components(separatedBy: .newlines)
+    .compactMap(Int.init)
 
 // Part 1
 let part1 = zip2(numbers.dropping(1), numbers)
