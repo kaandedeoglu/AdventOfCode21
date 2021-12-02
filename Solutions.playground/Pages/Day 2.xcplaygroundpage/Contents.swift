@@ -2,7 +2,8 @@ import Foundation
 
 enum Movement {
     case horizontal(Int)
-    case vertical(Int)
+    case up(Int)
+    case down(Int)
 
     /// Here we have a very non-general adhoc way of parsing things.
     /// In reality it would be much nicer to use a parser-combinator, however it's also probably an overkill for a simple exercise.
@@ -12,9 +13,9 @@ enum Movement {
         }
 
         if input.hasPrefix("down") {
-            self = .vertical(number)
+            self = .down(number)
         } else if input.hasPrefix("up") {
-            self = .vertical(-number)
+            self = .up(-number)
         } else if input.hasPrefix("forward") {
             self = .horizontal(number)
         } else {
@@ -29,17 +30,33 @@ guard let url = Bundle.main.url(forResource: "Input", withExtension: "txt"),
     exit(0)
 }
 
-let totalMovement = inputString
+let movements = inputString
     .components(separatedBy: .newlines)
     .compactMap(Movement.init)
+
+let totalMovement = movements
     .reduce(into: (horizontal: 0, vertical: 0)) { acc, movement in
         switch movement {
         case let .horizontal(value):
             acc.horizontal += value
-        case let .vertical(value):
+        case let .up(value), let .down(value):
             acc.vertical += value
         }
     }
 
-let result = totalMovement.horizontal * totalMovement.vertical
-print(result)
+let part1 = totalMovement.horizontal * totalMovement.vertical
+print(part1)
+
+let totalMovementWithAim = movements
+    .reduce(into: (horizontal: 0, vertical: 0, aim: 0)) { acc, movement in
+        switch movement {
+        case let .horizontal(value):
+            acc.horizontal += value
+            acc.vertical += acc.aim * value
+        case let .up(value), let .down(value):
+            acc.aim += value
+        }
+    }
+
+let part2 = totalMovementWithAim.horizontal * totalMovementWithAim.vertical
+print(part2)
