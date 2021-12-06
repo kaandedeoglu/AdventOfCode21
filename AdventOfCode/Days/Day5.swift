@@ -34,7 +34,6 @@ private struct Line {
     }
 
     var points: [Point] {
-        // Assuming horizontal or verical now:
         if p1.x == p2.x {
             // Vertical
             let lower = min(p1.y, p2.y)

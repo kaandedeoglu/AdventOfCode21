@@ -20,7 +20,7 @@ private final class Grid {
     private let cells: [Cell]
     private var finished = false
 
-    init(numbers: [Int]) {
+    init<S: Collection>(numbers: S) where S.Element == Int {
         guard numbers.count == Self.gridSize * Self.gridSize else {
             fatalError("Trying to initialize a grid with incorrect number of values")
         }
@@ -73,7 +73,6 @@ final class Day4: Day {
             .filter { !$0.isEmpty }
             .compactMap(Int.init)
             .chunks(ofCount: Grid.gridSize * Grid.gridSize)
-            .map(Array.init)
             .map(Grid.init)
 
         for number in selectedNumbers {
@@ -93,7 +92,6 @@ final class Day4: Day {
             .filter { !$0.isEmpty }
             .compactMap(Int.init)
             .chunks(ofCount: Grid.gridSize * Grid.gridSize)
-            .map(Array.init)
             .map(Grid.init)
 
         var scores: [Int] = []

@@ -7,14 +7,14 @@ import Foundation
 
 final class Day6: Day {
     func part1(_ input: String) -> CustomStringConvertible {
-        lanternfishCount(forInput: input, days: 80)
+        lanternFishCount(forInput: input, days: 80)
     }
 
     func part2(_ input: String) -> CustomStringConvertible {
-        lanternfishCount(forInput: input, days: 256)
+        lanternFishCount(forInput: input, days: 256)
     }
 
-    private func lanternfishCount(forInput input: String, days: Int) -> Int {
+    private func lanternFishCount(forInput input: String, days: Int) -> Int {
         let numbers = input.components(separatedBy: ",").compactMap(Int.init)
 
         var dictionary: [Int: Int] = [:]
