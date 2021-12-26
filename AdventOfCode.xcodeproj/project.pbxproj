@@ -89,6 +89,8 @@
 		BC3215DD275B6BBD0066A867 /* Sequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3215DC275B6BBD0066A867 /* Sequence+.swift */; };
 		BC3215DF275B6BD50066A867 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3215DE275B6BD50066A867 /* Zip.swift */; };
 		BC3215E1275B6C030066A867 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3215E0275B6C030066A867 /* Array+.swift */; };
+		BC3EBBC52779219F00B62A3F /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = BC3EBBC42779219F00B62A3F /* Collections */; };
+		BCA3AA282771143C00A036D9 /* PriorityQueueModule in Frameworks */ = {isa = PBXBuildFile; productRef = BCA3AA272771143C00A036D9 /* PriorityQueueModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -168,6 +170,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3EBBC52779219F00B62A3F /* Collections in Frameworks */,
+				BCA3AA282771143C00A036D9 /* PriorityQueueModule in Frameworks */,
 				39C3D0B92755752000B2F989 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +192,7 @@
 				39C3D06F27556C2F00B2F989 /* AdventOfCode */,
 				39C3D0AD275572BC00B2F989 /* AdventOfCodeTests */,
 				39C3D06E27556C2F00B2F989 /* Products */,
+				BCA3AA22277113ED00A036D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -285,6 +290,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BCA3AA22277113ED00A036D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,6 +315,8 @@
 			name = AdventOfCode;
 			packageProductDependencies = (
 				39C3D0B82755752000B2F989 /* Algorithms */,
+				BCA3AA272771143C00A036D9 /* PriorityQueueModule */,
+				BC3EBBC42779219F00B62A3F /* Collections */,
 			);
 			productName = AdventOfCode;
 			productReference = 39C3D06D27556C2F00B2F989 /* AdventOfCode */;
@@ -354,6 +368,7 @@
 			mainGroup = 39C3D06427556C2F00B2F989;
 			packageReferences = (
 				39C3D0B72755752000B2F989 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				BCA3AA1F2771138700A036D9 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 39C3D06E27556C2F00B2F989 /* Products */;
 			projectDirPath = "";
@@ -688,6 +703,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		BCA3AA1F2771138700A036D9 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -695,6 +718,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 39C3D0B72755752000B2F989 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
+		};
+		BC3EBBC42779219F00B62A3F /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA3AA1F2771138700A036D9 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		BCA3AA272771143C00A036D9 /* PriorityQueueModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCA3AA1F2771138700A036D9 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = PriorityQueueModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
